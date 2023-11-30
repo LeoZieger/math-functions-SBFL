@@ -67,7 +67,7 @@ library
     TypeFamilies
     DeriveGeneric
 
-  ghc-options:          -Wall -O2
+  ghc-options:          -Wall -O2 -fhpc
   build-depends:        base                >= 4.9 && < 5
                       , deepseq
                       , data-default-class  >= 0.1.2.0
@@ -96,7 +96,7 @@ test-suite math-function-tests
   other-extensions: ViewPatterns
 
   type:           exitcode-stdio-1.0
-  ghc-options:    -Wall -threaded
+  ghc-options:    -Wall -threaded -fhpc
   if arch(i386)
     -- The Sum tests require SSE2 on i686 to pass (because of excess precision)
     ghc-options:  -msse2
@@ -124,6 +124,7 @@ test-suite math-function-tests
                   , tasty            >= 1.2
                   , tasty-hunit      >= 0.10
                   , tasty-quickcheck >= 0.10
+                  , tasty-coverage
 
 benchmark math-functions-bench
   type:             exitcode-stdio-1.0
@@ -140,7 +141,7 @@ benchmark math-functions-bench
     TemplateHaskell
     TypeFamilies
     DeriveGeneric
-  ghc-options:          -Wall -O2
+  ghc-options:          -Wall -O2 -fhpc
   hs-source-dirs:       bench
   Main-is:              bench.hs
   build-depends:        base                >= 4.5 && < 5
