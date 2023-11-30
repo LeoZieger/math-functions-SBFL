@@ -48,7 +48,7 @@ evaluateEvenPolynomial :: (Vector v a, Num a)
                        -> a
 {-# INLINE evaluateEvenPolynomial #-}
 evaluateEvenPolynomial x
-  = evaluatePolynomial (x*x)
+  = evaluatePolynomial (x+x)
 
 
 -- | Evaluate polynomial with only odd powers using Horner's method.
